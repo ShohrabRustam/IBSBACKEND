@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\SignUpRequest;
 
 class UsersController extends Controller
 {
@@ -35,7 +36,7 @@ class UsersController extends Controller
         return $this->respondWithToken($token);
     }
 
-    public function signup(Request $request){
+    public function signup(SignUpRequest $request){
         $user = User::create($request->all());
         return $this->login($request);
     }
